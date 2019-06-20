@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取文本框焦点事件</title>
+	<style>
+		.gray {
+			color: #ccc;
+		}
+		.black {
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" value="请输入关键字" id='text' class="gray">
+	<input type="button" value="搜索" id='butn'>
+	<script>
+		var text = document.getElementById('text');
+		// 当文本框获取焦点时,清空文本框内容，并且字体变为黑色
+		// onfocus获取焦点事件
+		text.onfocus = function() {
+			if(text.value = '请输入关键字') {
+				this.value = '';
+				this.className='black';
+			}
+		}
+		// 当文本框失去焦点时，如果文本框内容为空，则还原文字，并让字体变为灰色
+		// onblur 失去焦点事件
+		text.onblur = function() {
+			if (text.value == '') {
+				this.value = '请输入关键字';
+				this.className = 'gray';
+			}
+		}
+	</script>
+</body>
+</html>

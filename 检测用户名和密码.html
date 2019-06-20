@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id='username'><br>
+	<input type="text" id='userpassword'><br>
+	<input type="button" value="登录" id='btnlogin'>
+<script>
+	var btnlogin = document.getElementById('btnlogin');
+	//获取按钮id，然后注册按钮点击事件
+	btnlogin.onclick = function() { 	//获取用户名和密码框id
+		var username = document.getElementById('username');
+		var userpassword = document.getElementById('userpassword');
+		if(username.value.length<3 || username.value.length >6)
+			//如果账号小于3位或者账号大于6位登录失败,并且retun结束
+		{
+			alert('账号必须在3-6位');
+			return;
+		}else {
+
+		}
+		if(userpassword.value.length<6 || userpassword>8)
+		//如果密码小于6位或者密码大于8位登录失败并且return结束
+		{
+			alert('密码必须在6-8位');
+						return;
+		}
+		else{
+			alert('登陆成功');
+		}
+	}
+</script>
+</body>
+</html>

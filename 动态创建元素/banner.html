@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+	<script src="../public/js/common.js"></script>
+<script>
+	var arry = [
+			{name: 'zy',subject: '语文',score: 90},
+			{name: 'lmk',subject: '语文',score: 90},
+	]
+	var headDatas = ['姓名','科目','成绩','操作'];
+	var table = document.createElement('table');
+	var box = document.getElementById('box');
+	box.appendChild(table);
+	table.border = '1px';
+		table.width = '400px';
+
+	var thead = document.createElement('thead');
+	table.appendChild(thead);
+
+
+	var tr = document.createElement('tr');
+	thead.appendChild(tr);
+			tr.style.height = '50px';
+		tr.style.background= '#ccc';
+
+	for(var i=0;i<headDatas.length;i++) {
+		var th = document.createElement('th');
+				tr.appendChild(th);
+				//th.innerText
+				setInnerText(th,headDatas[i]);
+	}
+
+</script>
+</body>
+</html>

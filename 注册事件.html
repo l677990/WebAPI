@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="main"><a href="#">点我切换图片</a></div>
+	<img src="public/images/lty.jpg" alt="" id="img">
+
+	<script>
+		var img = document.getElementById('img');
+		var divs = document.getElementById('main');
+		var getclick = 1;
+		divs.onclick = function() {
+			if(getclick == 1){
+				img.src = 'public/images/lty2.jpg';
+				getclick = 2;
+			} else if(getclick ==2){
+				img.src = 'public/images/lty.jpg';
+				getclick=1;
+			}
+		}
+	</script>
+</body>
+</html>

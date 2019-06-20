@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.yin {
+			display: none;
+		}
+		.xian {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="隐藏"></button>
+	<img src="public/images/lty.jpg" alt="" id = 'img' class="xian">
+
+	<script>
+		var btn = document.getElementById('btn');
+		var img = document.getElementById('img');
+		var flag = 1;
+		btn.onclick = function () {
+			if(flag == 1){
+				img.className = 'yin';
+				this.value = '显示';
+				flag = 2;
+			}else if(flag ==2) {
+				img.className = 'xian';
+				this.value='隐藏';
+				flag = 1;
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='box'>
+		<p>啊啊</p>
+		<h1>额</h1>
+		<span>德玛西亚</span>
+	</div>
+	<script>
+		var box = document.getElementById('box');
+		// console.log(box.firstChild); //获取第一个子节点
+		// console.log(box.firstElementChild); //获取第一个子元素
+		// console.log(box.lastElementChild);
+
+		var ele = box.firstElementChild;
+		console.log(ele);
+
+		//处理浏览器兼容性问题
+		 function ele() {
+                var node, nodes = this.childNodes, i = 0;
+                while (node = nodes[i++]) {
+                    if (node.nodeType === 1) {
+                        return node;
+                    }
+                }
+                return null;
+            }
+	</script>
+</body>
+</html>

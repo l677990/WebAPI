@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#box ul li:hover {
+		background-color: pink;
+	}
+</style>
+<body>
+	<input type="button" id='btn' value="点开">
+	<div id="box"></div>
+
+<script src="../public/js/common.js"></script>
+	<script>
+		var arrys = ['无极剑圣','疾风剑豪','无双剑姬'];
+		my$('btn').onclick = function() {
+			var ul = document.createElement('ul');
+			my$('box').appendChild(ul);
+			for(var i=0;i<arrys.length;i++) {
+				var arry = arrys[i];
+				var li = document.createElement('li');
+				ul.appendChild(li);
+				li.innerText = arry;
+			}
+		}
+	</script>
+</body>
+</html>

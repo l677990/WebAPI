@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="设置" id='btn'>
+	<select id="selCities">
+		<option value="1">食堂</option>
+		<option value="2" >黄焖鸡</option>
+		<option value="3">后门</option>
+		<option value="4">小面</option>
+		<option value="5">修仙</option>
+	</select>
+<script>
+	var btn = document.getElementById('btn');
+	btn.onclick = function() {
+		var selCities = document.getElementById('selCities');
+		var options = selCities.getElementsByTagName('option');
+		var randoms = parseInt(Math.random() * options.length);
+		// var randoms=     ParseInt(Math.random() * options.length);
+		var option = options[randoms];
+		option.selected = true;
+	}
+</script>
+</body>
+</html>

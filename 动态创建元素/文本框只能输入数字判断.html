@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>只能输入数字的文本框</title>
+</head>
+<body>
+	<input type="text" name="" id="txt" width="100px">
+	<script>
+		//键盘事件
+		//keydown 键盘按下的时候
+		//keyup   键盘弹起的时候
+		//keydown和keyup的区别 keydown的时候我们所按的键还没落入文本框 、 keyup 键盘弹起的时候按的键已经落入文本框
+		// 0=48 9=57(笔记本的1-9)  0=96 9=105(键盘的1-9)
+		var txt = document.getElementById('txt');
+		txt.onkeydown = function(e) {
+			e = e || window.event
+			// console.log(e.keyCode);
+			if ((e.keyCode <48 || e.keyCode>57) && e.keyCode !== 8 && (e.keyCode<96 || e.keyCode>105))
+			{
+				e.preventDefault();
+			}
+		}
+	</script>
+</body>
+</html>

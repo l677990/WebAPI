@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.blue {
+		background-color: skyblue;
+	}
+		ul li {
+			width: 60px;
+			height: 30px;
+			background-color: pink;
+			margin-left: 10px;
+			float: left;
+			list-style: none;
+			text-align: center;
+			line-height: 30px;
+		}
+		a {
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div id='menu'>
+		<ul>
+			<li class="blue"><a href="javascript:void(0)">首页</a></li>
+			<li><a href="javascript:void(0)">博客</a></li>
+			<li><a href="javascript:void(0)">播客</a></li>
+			<li><a href="javascript:void(0)">相册</a></li>
+			<li><a href="javascript:void(0)">关于</a></li>
+			<li><a href="javascript:void(0)">帮助</a></li>
+		</ul>
+	</div>
+	<script src="public/js/common.js"></script>
+	<script>
+		var menu = my$('menu');
+		var ul = getElementChild(menu);
+		//是a标签的点击事件，所以获取a标签
+		for (var i=0;i<ul.children.length;i++) {
+			var li = ul.children[i];
+			//获取li中的a标签
+			var link = getElementChild(li);
+			//注册点击a标签事件
+			link.onclick = linkClick;
+		}
+		function linkClick(){
+			//获取子元素
+			for (var i=0;i<ul.children.length;i++) {
+			//所有li取消高亮显示
+				var li = ul.children[i];
+				li.className='';
+			}
+			//让a标签的父节点li显示class样式
+			this.parentNode.className = 'blue';
+			//取消后续内容的执行
+			return false;
+		}
+	</script>
+</body>
+</html>

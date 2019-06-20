@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.gray {
+		color: #ccc;
+	}
+	.black {
+		color:#000;
+	}
+	</style>
+</head>
+<body>
+	<input type="text" value="请输入账号" id='text' class="gray">
+	<button value="登录" id='btn'>登录</button>
+
+	<script>
+		var texts = document.getElementById('text');
+		texts.onfocus = function() {
+			if(this.value =='请输入账号') {
+				this.value = '';
+				this.className='black';
+			}
+		}
+		texts.onblur = function() {
+			if(this.value.length == 0) {
+				this.value = '请输入账号';
+				this.className='gray';
+			}
+		}
+		var btn = document.getElementById('btn');
+		btn.onclick = function() {
+			if (texts.value.length<6 || texts.value.length>12) {
+				alert('账号必须在6-12位');
+				return;
+			}
+			else {
+				alert('登陆成功');
+			}
+		}
+	</script>
+</body>
+</html>

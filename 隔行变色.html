@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		ul li {
+			height: 20px;
+			line-height: 20px;
+			border-top: 1px solid #ccc;
+			width: 120px;
+			text-align: center;
+		}
+		.black {
+			background-color: #000;
+		}
+		.nulla {
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<ul id='hero'>
+		<li>无极剑圣</li>
+		<li>无双剑姬</li>
+		<li>疾风剑豪</li>
+		<li>暗裔剑魔</li>
+		<li>放逐之刃</li>
+		<li>魔法猫咪</li>
+	</ul>
+	<script>
+		var mv = document.getElementById('hero');
+		// var lis = hero.getElementsByTagName('li');
+		// for(var i=0;i<lis.length;i++) {
+		// 	ls = lis[i];
+		// 	if(i%2==0) {
+		// 		ls.className='black';
+		// 	} else {
+		// 		ls.className='nulla';
+		// 	}
+		// }
+		//
+		if(mv.hasChildNodes()){
+			for(var i=0;i<mv.children.length;i++) {
+				var child = mv.children[i];
+				if(i%2==0) {
+					child.style.background='pink';
+				}
+			}
+		}
+	</script>
+</body>
+</html>

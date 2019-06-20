@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	#box {
+		width: 400px;
+		height: 400px;
+		background: pink;
+		border:1px so;
+		margin:100px 10px 10px 100px;
+	}
+</style>
+</head>
+<body>
+<div id="box"></div>
+<script src="../public/js/common.js"></script>
+<script>
+	//offsetLeft  当前物体距离页面的位置  获取鼠标在盒子中的位置 = 鼠标的坐标-盒子的坐标
+	//offsetTop
+	var box = document.getElementById('box');
+	box.onclick = function(e) {
+		e = e || window.event
+		var x = e.pageX - this.offsetLeft;
+		var y = e.pageY - this.offsetTop;
+		console.log(x);
+		console.log(y);
+	}
+</script>
+</body>
+</html>

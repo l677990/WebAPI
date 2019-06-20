@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1 {
+			width: 300px;
+			height: 300px;
+			background: pink;
+		}
+		.box2 {
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		.box3 {
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">
+			<div class="box3">
+			</div>
+		</div>
+	</div>
+	<script>
+		var box1 = document.getElementById('box1');
+		var box2 = document.getElementById('box2');
+		var box3 = document.getElementById('box3');
+
+		var arry = [box1,box2,box3];
+
+		for (var i = 0;i<arry.length;i++) {
+			var box = arry[i];
+			box.onclick = function (e) {
+				console.log(this.id);
+			}
+		}
+
+	</script>
+</body>
+</html>

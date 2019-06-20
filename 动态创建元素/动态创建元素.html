@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Hellow word</h1>
+	<input type="button" id="btn" value="点我">
+	<div id="box"></div>
+	<script>
+		var btn = document.getElementById('btn');
+		var box = document.getElementById('box');
+		btn.onclick = function() {
+			box.innerHTML=('啊啊啊<p>呃呃呃</p>');
+		}
+	</script>
+</body>
+</html>

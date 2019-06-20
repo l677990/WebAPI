@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 400px;
+			height: 404px;
+		}
+		.box img {
+			padding-left: 15px;
+			margin: 0 auto;
+		}
+		#imageAlbum {
+			width: 400px;
+			height: 60px;
+		}
+		#imageAlbum a {
+			margin-left: 20px;
+			text-decoration: none;
+		}
+		#imageAlbum a img{
+			width: 38px;
+			margin: 0 auto;
+		}
+		#imageAlbum img:hover {
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="public/images/tb.jpg" alt="" width="300px"  id='boximg'>
+	</div>
+	<div id="imageAlbum">
+		<a href="public/images/tb.jpg" title="裤子1">
+			<img src="public/images/tb.jpg" alt="">
+		</a>
+		<a href="public/images/tb2.jpg" title="裤子2">
+			<img src="public/images/tb2.jpg" alt="">
+		</a>
+		<a href="public/images/tb3.jpg" title="裤子3">
+			<img src="public/images/tb3.jpg" alt="">
+		</a>
+		<a href="public/images/tb4.jpg" title="裤子4">
+			<img src="public/images/tb4.jpg" alt="">
+		</a>
+		<a href="public/images/tb5.jpg" title="裤子5">
+			<img src="public/images/tb5.jpg" alt="">
+		</a>
+	</div>
+	<p id='dev'>请选择一张图片</p>
+	<script>
+		var imageAlbum = document.getElementById('imageAlbum'); //获取div的id
+		var links = imageAlbum.getElementsByTagName('a'); 		//获取div下面所有a标签的属性
+		for (var i =0;i<links.length;i++) {				//获取次数，根据a标签的长度
+			var link = links[i];						//新建变量存储
+			var dev = document.getElementById('dev');    //获取p标签的id
+			link.onclick = function() {					//点击事件
+ 				var boximg = document.getElementById('boximg');  //获取大容器图片的id
+				boximg.src = this.href;							 //大图片容器的src值等于当前点击a标签的href
+				dev.innerText = this.title;						 //p标签的text值等于当前a标签的title
+				return false;									//结束
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text"><br>
+	<input type="text"><br>
+	<input type="text"><br>
+	<input type="text"><br>
+	<input type="button" value="点我获取值" id='btn'><br>
+	<script>
+		var btn = document.getElementById('btn');
+		var inputs = document.getElementsByTagName('input');
+			for(var i = 0;i<inputs.length;i++){
+				var input = inputs[i];
+				if(input.type=='text'){
+					input.value=i;
+				}
+			}
+		btn.onclick = function() {
+			var arry=[];
+			for (var i =0;i<inputs.length;i++){
+				var input = inputs[i];
+				if(input.value == 'text') {
+					arry.push(input.value);
+				}
+			}
+			console.log(arry.join('|'));
+		}
+	</script>
+</body>
+</html>

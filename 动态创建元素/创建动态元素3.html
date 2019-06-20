@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="链接" id='btn'>
+	<div id="box"></div>
+	<script>
+		var p = document.createAttribute('p');
+		var box = document.getElementById('box');
+		var btn = document.getElementById('btn');
+		btn.onclick = function() {
+				box.innerHTML = '<a href="#">啊啊</a>';
+				box.style.color = 'red';
+				box.appendChild('p');
+		}
+	</script>
+</body>
+</html>

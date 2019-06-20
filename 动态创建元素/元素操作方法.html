@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="按钮" id='btn'>
+	<ul id='text'>
+		<li>11</li>
+		<li>22</li>
+		<li>33</li>
+	</ul>
+	<ul id="ula"></ul>
+	<script>
+		//createElement()
+		//appendChild()
+		//removeChild()
+		//
+		//吧元素插入到页面的指定位置
+		//insertBefore()
+		//吧当前元素的标签进行替换
+		//replaceChild()
+		var btn = document.getElementById('btn');
+		btn.onclick = function() {
+			var li = document.createElement('li');
+			li.innerText = 'abc';
+
+			//吧li插入到ul的第一个位置
+			// var ul = document.getElementById('text');
+			// ul.insertBefore(li,ul.children[0]);
+
+			//吧ul的第一个li替换成div
+			// var div = document.createElement('div');
+			// var ul = document.getElementById('text');
+			// div.innerText='div';
+			// ul.replaceChild(div, ul.children[0]);
+
+			//吧第一个ul的li放到第二个ul里面
+			var ula = document.getElementById('ula');
+			var text = document.getElementById('text');
+			ula.appendChild(text.children[0]);
+		}
+
+	</script>
+</body>
+</html>

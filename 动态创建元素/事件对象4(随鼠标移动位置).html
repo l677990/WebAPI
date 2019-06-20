@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			height: 2000px;
+		}
+		#box {
+			width: 100px;
+			height: 100px;
+			background: pink;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script src="../public/js/common.js"></script>
+	<script>
+
+		document.onclick = function (e){
+			e = e || window.event;
+			console.log(getPage(e).pageX);
+			console.log(getPage(e).pageY);
+		}
+//兼容性问题
+function getPage(e) {
+	var pageX = e.pageX || e.clientX + getScroll().scrollLeft;
+	var pageY = e.pageY || e.clientY + getScroll().scrollTop;
+	return {
+		pageX :pageX,
+		pageY :pageY
+	}
+}
+
+	</script>
+</body>
+</html>

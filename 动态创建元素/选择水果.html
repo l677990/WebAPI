@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#all,
+		#select {
+			width: 100px;
+			height: 200px;
+			background-color: pink;
+		}
+		#all option,
+		#select option {
+			height: 30px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<select id="all" multiple="multiple">
+		<option>西瓜</option>
+		<option>苹果</option>
+		<option>香蕉</option>
+		<option>木瓜</option>
+		<option>菠萝</option>
+		<option>荔枝</option>
+	</select>
+	<input type="button" value=">>" id="btn1">
+	<input type="button" value=">" id = 'btn3'>
+	<input type="button" value="<" id='btn4'>
+	<input type="button" value="<<" id='btn2'>
+	<select id="select" multiple="multiple">
+	</select>
+	<script src="../public/js/common.js"></script>
+	<script>
+		var all = my$('all');
+		var select = my$('select');
+		//点击按钮1和按钮2 移动所有的子元素到另一个select
+		my$('btn1').onclick = function() {
+			var link = all.children.length;
+			for (var i=0;i<link;i++) {
+				var links = all.children[0];
+				select.appendChild(links);
+			}
+		}
+		my$('btn2').onclick = function() {
+			var link = select.children.length;
+			for (var i=0;i<link;i++) {
+				var links = select.children[0];
+				all.appendChild(links);
+			}
+		}
+
+		//点击按钮3和按钮4移动选择的option到另一处select
+		my$('btn3').onclick = function() {
+			var arry = [];
+			for(var i=0;i<all.children.length;i++) {
+				var links = all.children[i];
+				if (links.selected) {
+					arry.push(links);
+					links.selected = false;
+				}
+			}
+			for (var i=0;i<arry.length;i++) {
+				var links = arry[i];
+				select.appendChild(links);
+			}
+		}
+
+		my$('btn4').onclick = function() {
+			var arry = [];
+			for(var i =0;i<select.children.length;i++) {
+				var links = select.children[i];
+				if (links.selected) {
+					arry.push(links);
+					links.selected = false;
+				}
+			}
+			  for (var i=0; i<arry.length;i++) {
+			    	var links = arry[i];
+			    	all.appendChild(links);
+			    }
+		}
+	</script>
+</body>
+</html>

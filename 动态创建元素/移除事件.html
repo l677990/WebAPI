@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="点我" id='btn'>
+<script>
+	var btn = document.getElementById('btn');
+	function btnclick() {
+		alert('message');
+		btn.removeEventListener('click', btnclick);
+	}
+	btn.addEventListener('click',btnclick);
+
+</script>
+</body>
+</html>

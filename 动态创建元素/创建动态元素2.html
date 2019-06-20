@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="点我" id='btn'>
+	<div id='box'></div>
+
+	<script>
+		//没优化前
+		// var btn = document.getElementById('btn');
+		// btn.onclick = function() {
+		// 	var dates = ['无极剑圣','德邦总管','疾风剑豪','无双剑姬','暗裔剑魔'];
+		// 	var box = document.getElementById('box');
+		// 	box.innerHTML = '<ul>';
+		// 		for(var i=0;i<dates.length;i++) {
+		// 			var date=dates[i];
+		// 			box.innerHTML += '<li>' +date+ '</li>';
+		// 		}
+		// 	box.innerHTML += '</ul>';
+		// }
+
+
+		//第一步优化
+		// var btn = document.getElementById('btn');
+		// btn.onclick = function() {
+		// 	var dates = ['无极剑圣','德邦总管','疾风剑豪','无双剑姬','暗裔剑魔'];
+		// 	var box = document.getElementById('box');
+		// 	var html = '<ul>';
+		// 		for(var i=0;i<dates.length;i++) {
+		// 			var date=dates[i];
+		// 			html += '<li>' +date+ '</li>';
+		// 		}
+		// 	html += '</ul>';
+		// 	box.innerHTML=html;
+		// }
+
+		//优化2
+		var btn = document.getElementById('btn');
+		btn.onclick = function() {
+			var dates = ['无极剑圣','德邦总管','疾风剑豪','无双剑姬','暗裔剑魔'];
+			var box = document.getElementById('box');
+			var arry = [];
+			arry.push('<ul>');
+				for(var i=0;i<dates.length;i++) {
+					var date=dates[i];
+					arry.push('<li>' +date+ '</li>');
+				}
+			arry.push('</ul>');
+			box.innerHTML=arry.join('');
+		}
+	</script>
+</body>
+</html>

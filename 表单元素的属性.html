@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="我是按钮" id='btn'>
+		<input type="button" value="点我设置文本框的值" id='btn2'>
+	<input type="text" value="123" id='text'>
+<script>
+	//有2个按钮，分别获取按钮id，btn和btn2 在获取文本框的id 设置一个判定的值flag
+	var btn = document.getElementById('btn');
+	var text = document.getElementById('text');
+	var btn2 = document.getElementById('btn2');
+	var flag=1;
+	//当点击按钮1的时候文本框显示不可操作，再点击一下的时候文本框恢复
+	btn.onclick = function() {
+		if(flag ==1){
+			text.disabled = true;
+			flag =2;
+		} else if (flag ==2) {
+			text.disabled=false;
+			flag =1;
+		}
+	}
+	//按钮2，点击更换文本框的值
+	btn2.onclick = function() {
+		text.value = '这是一只猴子';
+	}
+</script>
+</body>
+</html>
