@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		onload = function() {
+			var ismytime;
+			// var btn = my$('btn');
+			// var btn2 = my$('btn2');
+			var btn = document.getElementById('btn');
+			btn.onclick = function () {
+				ismytime = setInterval(function(){
+					console.log('木大');
+				},1000);
+			}
+				function qwq(id) {
+			return document.getElementById(id);
+		}
+
+		var btn2 = qwq('btn2');
+		btn2.onclick = function () {
+			 clearInterval(ismytime);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="开始" id='btn'>
+	<input type="button" value="取消" id='btn2'>
+	<script>
+	
+
+	</script>
+</body>
+</html>

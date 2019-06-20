@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时</title>
+<style>
+	body {
+		margin:0;
+		padding: 0;
+		background: #F5F5F5;
+	}
+	#tie {
+		width: 200px;
+		height: 100px;
+		border:1px solid #FFF5EE;
+		background: #FFFAFA;
+		text-align: center;
+		line-height: 100px;
+		margin:100px auto;
+		font-size: 15px;
+		color: #DCDCDC;
+		display: none;
+	}
+</style>
+	<script>
+		onload = function () {
+			var btn = document.getElementById('btn');
+			var tie = document.getElementById('tie');
+			btn.onclick = function () {
+				tie.style.display='block';
+				var mytime = setTimeout(function() {
+				tie.style.display = 'none';
+				},3000);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="点我" id='btn'>
+	<div id="tie">食堂蒲辣辛 砸瓦鲁多!</div>
+</body>
+</html>

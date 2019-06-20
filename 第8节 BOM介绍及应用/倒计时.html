@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+	.box {
+		margin: 100px 0 50px 0;
+		text-align: center;
+	}
+	.aa,#day {
+		color: #FFA500;
+		font-size: 28px;
+	}
+	strong {
+		background: #FFA500;
+		color: #fff;
+		font-size: 28px;
+		border-radius: 5px;
+	}
+	.qwq {
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<div class="box"><h1>距离我生日,还有</h1></div>
+	<div class="qwq">
+	<span class="aa"><span id='day'>00</span>天</span>
+	<strong><span id="hour">00</span>时</strong>
+	<strong><span id="minute">00</span>分</strong>
+	<strong><span id="second">00</span>秒</strong>
+	</div>
+	<script src="../public/js/common.js"></script>
+	<script>
+		//获取目标时间
+		var endDate = new Date('2020-06-03');
+
+		//获取span
+		var spanday = my$('day');
+		var spanhour = my$('hour');
+		var spanminute = my$('minute');
+		var spansecond = my$('second');
+			//1秒执行一次
+		setInterval(brithday,1000);
+		brithday();
+		function brithday () {
+			//计算时间差
+			//当前时间
+			var startDate = new Date();
+			//计算两个日期差
+			var interval = getInterval(startDate,endDate);
+
+			setInnerText(spanday, interval.day);
+			setInnerText(spanhour, interval.hour);
+			setInnerText(spanminute, interval.minute);
+			setInnerText(spansecond, interval.second);
+
+		}
+	</script>
+</body>
+</html>
