@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单动画</title>
+<style>
+	body {
+		margin: 0;
+	}
+	#box {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		background: pink;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value="点我" id='btn'> <p></p>
+	<div id="box"></div>
+	<script src="../public/js/common.js"></script>
+	<script>
+		var btn = my$('btn');
+		var box = my$('box');
+		btn.onclick = function() {
+			setInterval(function() {
+				if (box.offsetLeft == 500) {
+					clearInterval();
+					return;
+				}
+				box.style.left = box.offsetLeft +5+ 'px';
+			},30);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出登录</title>
+	<style>
+		.lg a {
+			color: pink;
+			text-decoration: none;
+		}
+		.lg {
+			margin: 20px auto;
+			width: 100%;
+			font-size: 26px;
+			text-align: center;
+		}
+		#login {
+			position: absolute;
+			top: 30%;
+			left: 30%;
+			width: 500px;
+			height: 300px;
+			border: 1px solid #ccc;
+			background: #fff;
+			z-index: 10;
+			display: none;
+		}
+		#login span {
+			display: block;
+			padding-top: 10px;
+			font-size: 24px;
+			text-align: center;
+		}
+		.tname {
+			text-align: center;
+			padding-left: 16px;
+			padding-top: 20px;
+			font-size: 20px;
+		}
+		.tpass {
+			text-align: center;
+			padding-top: 20px;
+			font-size: 20px;
+		}
+		#btn {
+			font-size: 20px;
+			width: 200px;
+			height: 40px;
+			border: 1px solid #ccc;
+			position: absolute;
+			bottom: 60px;
+			left: 170px;
+			text-align: center;
+			line-height: 40px;
+		}
+		 a {
+			color: #000;
+		}
+		.login-bg {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: rgba(0,0,0,0.4);
+			z-index: 5;
+			display: none;
+		}
+		#close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			border: 1px solid #ccc;
+			font-size: 12px;
+			color:#ccc;
+			cursor: pointer;
+		}
+		#hd {
+			cursor: move;
+		}
+	</style>
+</head>
+<body>
+<!-- 点我登录 -->
+<div class="lg" id='lg'><a href="#">点我登录</a></div>
+<!-- 登录框样式 -->
+<div id="login">
+	<span id='hd'>登录鸭(点着我不放可以拖动)</span>
+	<div id="close">关闭</div>
+	<div class="tname">用户名&nbsp:&nbsp<input type="text" id='tname'></div>
+	<div class="tpass">登录密码&nbsp:&nbsp<input type="password" id='tpass'></div>
+	<a href="#"><div id="btn">会员登录</div></a>
+</div>
+<!-- 遮盖层 -->
+<div class="login-bg" id='zg'></div>
+
+<script>
+	//让登录窗口能挪动
+	var lg = document.getElementById('lg');
+	var hd = document.getElementById('hd');
+	var login = document.getElementById('login');
+	var zg = document.getElementById('zg');
+	var close = document.getElementById('close');
+	var tname = document.getElementById('tname');
+	var tpass = document.getElementById('tpass');
+	var btn = document.getElementById('btn');
+	//判断用户只能在文本框输入数字
+	tname.onkeydown = function(e) {
+		if ((e.keyCode <48 || e.keyCode>57) && e.keyCode !== 8 && (e.keyCode<96 || e.keyCode>105))
+			{
+				e.preventDefault();
+			}
+	}
+	tpass.onkeydown = function(e) {
+		if ((e.keyCode <48 || e.keyCode>57) && e.keyCode !== 8 && (e.keyCode<96 || e.keyCode>105))
+			{
+				e.preventDefault();
+			}
+	}
+	// tname.onfocus = function () {
+	// 	tname.type = '';
+	// }
+	// tname.onblur = function () {
+	// 	tname.type = '随便输';
+	// }
+	//登录
+	btn.onclick = function () {
+		alert('登录成功');
+		login.style.display = 'none';
+		zg.style.display = 'none';
+	}
+	//关闭按钮
+	close.onclick = function () {
+		login.style.display = 'none';
+		zg.style.display = 'none';
+	}
+	//点我登录
+	lg.onclick = function() {
+		login.style.display = 'block';
+		zg.style.display = 'block';
+	}
+	hd.onmousedown = function(e) {
+		var x = e.pageX - login.offsetLeft;
+		var y = e.pageY - login.offsetTop;
+		document.onmousemove = function (e) {
+			//当鼠标在页面上移动的时候，求盒子的坐标
+			//盒子的坐标 = 鼠标在当前页面中的位置 - 鼠标在盒子中的位置
+			var boxX = e.pageX - x;
+			var boxY = e.pageY - y;
+			login.style.left = boxX + 'px';
+			login.style.top = boxY + 'px';
+			document.onmouseup = function() {
+				document.onmousemove = null;
+			}
+		}
+	}
+</script>
+</body>
+</html>

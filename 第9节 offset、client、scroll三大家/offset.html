@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offset</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			margin: 100px 0px 0px 100px;
+			height: 300px;
+			width: 300px;
+			background-color: pink;
+	/*		position: relative;*/
+		}
+		#box2 {
+			position: absolute;
+			margin: 100px 0 0 100px;
+			height: 50px;
+			width: 50px;
+			border:10px solid #ccc;
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="box2"></div>
+	</div>
+	<script>
+		var box = document.getElementById('box');
+		var box2 = document.getElementById('box2');
+		console.log(box.offsetLeft);
+		console.log(box.offsetTop);
+
+		console.log(box2.offsetWidth);
+		console.log(box2.offsetHeight);
+			console.log(box2.offsetLeft);
+		console.log(box2.offsetTop);
+	</script>
+</body>
+</html>

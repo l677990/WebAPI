@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style>
+		.d-box {
+			height: 300px;
+			width: 300px;
+			border: 1px solid #ccc;
+/*			margin: 200px auto;*/
+			position: absolute;
+			top: 40%;
+			left: 40%;
+		}
+		.hd {
+			background: skyblue;
+			height: 50px;
+			line-height: 50px;
+			width: 100%;
+			cursor: move;
+			position: absolute;
+		}
+	#box_close {
+		float: right;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<a href="#" id='register'>注册信息</a>
+	</div>
+
+<div class="d-box" id='d_box'>
+		<div class="hd" id='drop'>注册信息(可以拖拽)
+		<span id='box_close'>[关闭]</span>
+		</div>
+		<div class="bd"></div>
+</div>
+<script src="../public/js/common.js"></script>
+<script>
+	var box = document.getElementById('d_box');
+	var drop = document.getElementById('drop');
+	var close = document.getElementById('box_close');
+	drop.onmousedown = function(e) {
+		e = e || window.event;
+		//当鼠标按下的时候。求鼠标在盒子中的位置
+		//鼠标在盒子中的位置 = 鼠标在页面上的位置 - 盒子的位置
+		// var x = e.pageX - box.offsetLeft;
+		// var y = e.pageY - box.offsetTop;
+		// 处理ie低版本兼容性问题
+		   var x = getPage(e).pageX - box.offsetLeft;
+		   var y = getPage(e).pageY - box.offsetTop;
+
+
+		document.onmousemove = function(e) {
+			e = e || window.event;
+			//当鼠标在页面上移动的时候，求盒子的坐标
+			//盒子的坐标 = 鼠标在当前页面中的位置 - 鼠标在盒子中的位置
+			var boxX = getPage(e).pageX - x;
+			var boxY = getPage(e).pageY - y;
+			box.style.left = boxX + 'px';
+			box.style.top = boxY+ 'px';
+		}
+		document.onmouseup = function() {
+			document.onmousemove = null;
+		}
+		close.onclick = function() {
+			box.style.display = 'none';
+		}
+	}
+</script>
+</body>
+</html>

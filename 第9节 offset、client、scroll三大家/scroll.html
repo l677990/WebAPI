@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		#box {
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+			border:10px solid #ccc;
+			background: pink;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">阔落dio哒，食堂朴辣辛，砸瓦鲁多哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒</div>
+	<script>
+		var box = document.getElementById('box');
+		// console.log(box.clientHeight);
+		// console.log(box.clientWidth);
+
+		console.log(box.scrollLeft);
+		console.log(box.scrollTop);
+
+		console.log(box.scrollWidth);
+		console.log(box.scrollHeight);
+	</script>
+</body>
+</html>

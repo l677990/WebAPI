@@ -60,3 +60,37 @@ function my$(id) {
  		scrollTop: scrollTop
  	}
  }
+
+ //获取鼠标在页面中的位置，处理浏览器兼容问题
+ function getPage(e) {
+ 	var pageX = e.pageX || e.clientX + getScroll().scrollLeft;
+ 	var pageY = e.pageY || e.clientY + getScroll().scrollTop;
+ 	return {
+ 		pageX : pageX,
+ 		pageY : pageY
+ 	}
+ }
+
+ //获取两个日期的时间差
+ function getInterval(start,end) {
+ 	//两个日期对象，相差的毫秒数
+ 	var interval = end - start;
+ 	//求相差的天数/小时数/分钟数/秒数
+ 	var day,hour,minute,second;
+
+ 	//interval = interval / 1000;
+ 	//因为获取的是毫秒，再除1000获取秒
+ 	interval /= 1000;
+
+ 	day = Math.round(interval / 60 / 60 / 24);
+ 	hour =Math.round(interval / 60 / 60 % 24);
+ 	minute = Math.round(interval / 60 % 60);
+ 	second = Math.round(interval % 60);
+
+ 	return {
+ 		day : day,
+ 		hour : hour,
+ 		minute : minute,
+ 		second : second
+ 	}
+ }

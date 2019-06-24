@@ -35,32 +35,26 @@
 	<strong><span id="minute">00</span>分</strong>
 	<strong><span id="second">00</span>秒</strong>
 	</div>
-	<script src="../public/js/common.js"></script>
+
+  <script src="../public/js/common.js"></script>
 	<script>
 		//获取目标时间
-		var endDate = new Date('2020-06-03');
-
+		var endtime = new Date('2020-06-03');
 		//获取span
 		var spanday = my$('day');
 		var spanhour = my$('hour');
 		var spanminute = my$('minute');
 		var spansecond = my$('second');
-			//1秒执行一次
-		setInterval(brithday,1000);
-		brithday();
-		function brithday () {
-			//计算时间差
-			//当前时间
-			var startDate = new Date();
-			//计算两个日期差
-			var interval = getInterval(startDate,endDate);
-
-			setInnerText(spanday, interval.day);
-			setInnerText(spanhour, interval.hour);
-			setInnerText(spanminute, interval.minute);
-			setInnerText(spansecond, interval.second);
-
-		}
+		setInterval(birthday, 1000);
+		birthday();
+			function birthday() {
+				var starttime = new Date();
+				var interval = getInterval(starttime, endtime);
+				setInnerText(spanday, interval.day);
+				setInnerText(spanhour, interval.hour);
+				setInnerText(spanminute, interval.minute);
+				setInnerText(spansecond, interval.second);
+			}
 	</script>
 </body>
 </html>

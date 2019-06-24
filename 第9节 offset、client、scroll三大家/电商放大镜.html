@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电商放大镜</title>
+	<style>
+ 	* {
+ 		margin: 0;
+ 		padding: 0;
+ 	}
+ 	#box {
+ 		width: 350px;
+ 		height: 350px;
+ 		margin: 100px;
+ 		border: 1px solid #ccc;
+ 		position: relative;
+ 	}
+ 	.big {
+ 		width: 400px;
+ 		height: 400px;
+ 		position: absolute;
+ 		top: 0;
+ 		left: 360px;
+ 		border: 1px solid #ccc;
+ 		overflow: hidden;
+ 		display: none;
+ 	}
+ 	.big img {
+ 		position: absolute;
+ 	}
+ 	.mask {
+ 		width: 175px;
+ 		height: 175px;
+ 		background: rgba(255,255,0,0.4);
+ 		position: absolute;
+ 		top: 0px;
+ 		left: 0px;
+ 		cursor: move;
+ 		display: none;
+ 	}
+ 	.small {
+ 		position: relative;
+ 	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="small">
+			<img src="../public/images/lty.jpg" width="350">
+			<!-- 鼠标放上图片的小方块 -->
+			<div class="mask"></div>
+		</div>
+		<div class="big">
+				<img src="../public/images/lty.jpg" width="800">
+		</div>
+	</div>
+	<script src="../public/js/common.js"></script>
+	<script>
+		var box = my$('box');
+		//获取box下面的第一个子元素和第二个子元素
+		var smallbox = box.children[0];
+		var bigbox = box.children[1];
+
+		//获取box第一个子元素下面的第一个子元素和第二个子元素
+		//获取box第二个子元素下面的子元素
+		var smallimg = smallbox.children[0];
+		var smallmask = smallbox.children[1];
+		var bigimg = bigbox.children[0];
+
+		//1 鼠标经过的时候,显示mask和big ，当鼠标离开的时候隐藏mask和big
+		box.onmouseover = function () {
+			smallmask.style.display = 'block';
+			bigbox.style.display = 'block';
+		}
+		box.onmouseout = function () {
+			smallmask.style.display = 'none';
+			bigbox.style.display = 'none';
+		}
+		//2 当鼠标在盒子中移动的时候让 mask和鼠标一起移动
+		box.onmousemove = function(e) {
+			e = e || window.event;
+			var x = getPage(e).pageX - box.offsetLeft;
+			var y = getPage(e).pageY - box.offsetTop;
+
+			//让鼠标出现在mask的中心点
+			x = x - smallmask.offsetWidth/2;
+			y = y - smallmask.offsetHeight/2;
+
+			//让mask移动的范围不能超过box盒子,mask在不能小于0，也不能超过最大值 。三元运算符判断和普通的if判断表达式
+			// if(x<0) {
+			// 	x = 0;
+			// }
+			// if(y<0) {
+			// 	y = 0;
+			// }
+			x = x < 0 ? 0:x;
+			y = y < 0 ? 0:y;
+
+			// if(x > box.offsetWidth - smallmask.offsetWidth) {
+			// 	x = box.offsetWidth - smallmask.offsetWidth;
+			// }
+			// if(y > box.offsetHeight - smallmask.offsetHeight) {
+			// 	y = box.offsetHeight - smallmask.offsetHeight;
+			// }
+			x = x > box.offsetWidth - smallmask.offsetWidth ? box.offsetWidth - smallmask.offsetWidth : x;
+			y = y > box.offsetHeight - smallmask.offsetHeight ? box.offsetHeight - smallmask.offsetHeight : y;
+
+			smallmask.style.left = x + 'px';
+			smallmask.style.top = y + 'px';
+
+			//3 当mask移动的时候，让大图片移动.
+			//求 大图片移动的距离
+			//mask移动的距离 / mask最大能移动的距离 = 大图片移动的距离/大图片最大能移动的距离
+			//mask最大能移动的距离
+			var maskmax = box.offsetWidth - smallbox.offsetLeft;
+			//大图片最大能移动的距离
+			var maximg = bigimg.offsetWidth - bigbox.offsetWidth;
+			//mask移动的距离 / mask最大能移动的距离 = 大图片移动的距离/大图片最大能移动的距离
+			//大图片移动的距离 = mask移动的距离 / mask最大能移动的距离 * 大图片最大能移动的距离
+			var maximgx = x / maskmax * maximg;
+			var maximgy = y / maskmax * maximg;
+
+			bigimg.style.left = - maximgx + 'px';
+			bigimg.style.top = - maximgy + 'px';
+		}
+
+
+	</script>
+</body>
+</html>
